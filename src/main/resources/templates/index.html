@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escolha Sua História</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Para emojis e ícones -->
+</head>
+<body>
+    <div class="container">
+        <h1>📜 Escolha Sua História Mágica ✨</h1>
+        <p>Explore universos desconhecidos e tome decisões que mudam o rumo da sua aventura! 🌌</p>
+        <form action="/selecionarTema" method="post">
+            <label for="tema">Escolha um tema:</label>
+            <select name="tema" id="tema" required>
+                <option value="" disabled selected>Selecione um tema</option>
+                <th:block th:each="tema : ${temas}">
+                    <option th:value="${tema}" th:text="${tema}"></option>
+                </th:block>
+            </select>
+            <button type="submit">Iniciar Aventura 🚀</button>
+        </form>
+    </div>
+</body>
+</html>
+
+
+

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado da História</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Inclua seu CSS aqui -->
+</head>
+<body>
+    <h1>Resultado da História</h1>
+    <p th:text="${introducao}"></p>
+    
+    <h2>Escolhas:</h2>
+    <form action="/gerar" method="post">
+        <input type="hidden" name="tema" th:value="${tema}" />
+        <th:block th:each="opcao : ${opcoes}">
+            <label>
+                <input type="radio" name="escolha" th:value="${opcao}" />
+                <span th:text="${opcao}"></span>
+            </label><br>
+        </th:block>
+        <button type="submit">Gerar História</button>
+    </form>
+
+    <h2>Resultado Final:</h2>
+    <p th:text="${resultado}"></p>
+    <a href="/">Voltar</a>
+</body>
+</html>
